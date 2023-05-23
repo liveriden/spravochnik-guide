@@ -1,3 +1,1 @@
 # spravochnik-guide
-
-tect
