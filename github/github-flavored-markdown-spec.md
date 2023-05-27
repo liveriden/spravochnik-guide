@@ -115,6 +115,8 @@ Optional Fields
 
 .
 
+## сноски (статус выясняеца)
+
 Some text with a footnote.[^i]
 Some text with a footnote.[^ii]
 Some text with a footnote.[^iii]
