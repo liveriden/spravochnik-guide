@@ -22,7 +22,7 @@
 
   Команда `git init -b main` создает новый локальный репозиторий Git c веткой `main` вместо ветки `master`. Для инициализации git с веткой main ввести команду
 
-  ```
+  ```bash
   git init -b main
   ```
 
@@ -30,7 +30,7 @@
 
 - **вывод команды:**
 
-  ```
+  ```bash
   Initialized empty Git repository in REPOSITORY-DIRECTORY/.git/
   ```
 
@@ -50,13 +50,13 @@
 
   **Пример команды: SSH**
 
-  ```
+  ```bash
   git remote add origin git@github.com:GITHUB-USER-NAME/REPOSITORY-NAME.git
   ```
 
   **Пример команды: HTTPS**
 
-  ```
+  ```bash
   git remote add origin https://github.com/GITHUB-USER-NAME/REPOSITORY-NAME.git
   ```
 
@@ -74,14 +74,14 @@
 
   **SSH**
 
-  ```
+  ```bash
   origin  git@github.com:GITHUB-USER-NAME/REPOSITORY-NAME.git (fetch)
   origin  git@github.com:GITHUB-USER-NAME/REPOSITORY-NAME.git (push)
   ```
 
   **HTTPS**
 
-  ```
+  ```bash
   origin  https://github.com/GITHUB-USER-NAME/REPOSITORY-NAME.git (fetch)
   origin  https://github.com/GITHUB-USER-NAME/REPOSITORY-NAME.git (push)
   ```
