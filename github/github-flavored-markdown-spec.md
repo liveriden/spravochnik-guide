@@ -44,24 +44,31 @@ created: 2023-05-22T06:47:50.205Z
 
 ```markdown
 [линк-якорный — link-anchor](#линк-якорный---link-anchor)
+
 # линк-якорный - link-anchor
 
 [link](#link)␠ ␠
+
 # link␣␣
 
 [link I](#link-2)␣␣
+
 # link 2␣␣
 
 [link'I](#linkI)
+
 # link'I
 
 [link'I I:](#linkI-I)
+
 # link'I I:
 
 [link'I I: I](#linkI-I-I)
+
 # link'I I: I
 
 [link'I I: I I](#linkI-I-I-I)
+
 # link'I I: I I
 ```
 
@@ -123,15 +130,13 @@ HTML -тег:
 [my-anchor](#my-anchor)
 
 ```html
-[my-anchor](#my-anchor)
-<a id="my-anchor">my-anchor</a>
+[my-anchor](#my-anchor) <a id="my-anchor">my-anchor</a>
 ```
 
 [my-anchor](#m-anchor)
 
 ```html
-[my-anchor](#my-anchor)
-<a id="m-anchor">my anchor</a>
+[my-anchor](#my-anchor) <a id="m-anchor">my anchor</a>
 ```
 
 ---
@@ -142,7 +147,7 @@ HTML -тег:
 
 Вы можете определить относительные ссылки и пути к изображениям в отображаемых файлах, чтобы читателям было проще переходить к другим файлам в репозитории.
 
-Относительная ссылка — это ссылка, заданная относительно текущего файла. Например, если есть файл сведений в корне репозитория и еще один файл в *docs/CONTRIBUTING.md*, относительная ссылка на *CONTRIBUTING.md* в файле сведений может выглядеть следующим образом:
+Относительная ссылка — это ссылка, заданная относительно текущего файла. Например, если есть файл сведений в корне репозитория и еще один файл в _docs/CONTRIBUTING.md_, относительная ссылка на _CONTRIBUTING.md_ в файле сведений может выглядеть следующим образом:
 
 ```markdown
 [Contribution guidelines for this project](docs/CONTRIBUTING.md)
@@ -182,11 +187,32 @@ GitHub автоматически преобразует относительн�
 
 ---
 
+
+## Color Reference
+
+```markdown
+| Color         | Hex                                                              |
+| ------------- | ---------------------------------------------------------------- |
+| Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |
+| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #f8f8f8 |
+| Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #00b48a |
+| Example Color | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #00d1a0 |
+```
+
+| Color         | Hex                                                              |
+| ------------- | ---------------------------------------------------------------- |
+| Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |
+| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #f8f8f8 |
+| Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #00b48a |
+| Example Color | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #00d1a0 |
+
+---
+
 ## сноска-примечание - footnote
 
 **сноски рендерит в нижней части документа - footnotes render at the bottom of the document** [^i]
 
-[^i]: **сноски - footnotes render** 
+[^i]: **сноски - footnotes render**
 
 ```markdown
 Some text with a footnote. [^ii]
@@ -224,18 +250,14 @@ Some text with a footnote. [^iiii]
 Some text with a footnote. [^1]
 [^1]: The footnote.
 
+Some text with a footnote. [^11]
+[^11]: The footnote.
 
 Some text with a footnote. [^11]
 [^11]: The footnote.
 
-
 Some text with a footnote. [^11]
 [^11]: The footnote.
-
-
-Some text with a footnote. [^11]
-[^11]: The footnote.
-
 
 Some text with a footnote. [^2]
 [^2]: The footnote.
