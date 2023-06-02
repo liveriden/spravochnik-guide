@@ -1,4 +1,4 @@
-.. https://github.com/mazhartsev/sphinx-ru/blob/master/docs/rst-markup.rst
+.. @mazhartsev https://github.com/mazhartsev/sphinx-ru/blob/master/docs/rst-markup.rst
 
 .. Список автозамен:
 .. |rest| replace:: reStructuredText
@@ -10,6 +10,8 @@
 
 
 .. _rst-markup-label:
+
+@mazhartsev
 
 Стандартный синтаксис разметки reStructuredText
 ===============================================
