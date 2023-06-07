@@ -32,16 +32,14 @@
 > **[Семантика (программирование)](<https://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D0%BC%D0%B0%D0%BD%D1%82%D0%B8%D0%BA%D0%B0_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)> "Семантика (программирование)")** — дисциплина, изучающая формализации значений конструкций языков программирования посредством построения их формальных математических моделей.
 
 <div align="center">
-<p><strong>Liveriden</strong></p>
+<h2>Liveriden</h2>
+<a href="https://github.com/liveriden" title="Liveriden">
+<img alt="Liveriden logo - (Если Вы видите этот текст, это значит ссылка неработающая, если у Вас есть свободная минутка :) сообщите об этом  на электронную почту вставив ссылку страницы в письмо или опишите ситуацию.) (If You see this text, it means the link is broken, if You have a free minute :) let know by e-mail by inserting the page link in the letter or describe the situation.)" height="128" src="https://github.com/liveriden/lidev/raw/main/github-assets/image/smile-browser-image.png" width="128" />
+</a>
 </div>
-
-<div align="center">
-<a href="https://github.com/liveriden" title="Liveriden"><img src="https://github.com/liveriden/lidev/raw/main/media/img/smile-browser-image.png" alt="Liveriden logo" width="100" height="100"></a>
-</div>
-
 <div align="center">
 
-[:octocat: Github](https://github.com/)
+**[:octocat: Github](https://github.com/)**
 
 </div>
-<!-- 'liveridenʳ࿕☦' -->
+<!-- liveridenʳ࿕☦ 2023-06-07 -->
