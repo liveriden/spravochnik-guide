@@ -1,0 +1,615 @@
+https://mpv.io/manual/master/#keyboard-control
+
+
+SYNOPSIS
+mpv [options] [file|URL|PLAYLIST|-]
+mpv [options] files
+DESCRIPTION
+
+mpv is a media player based on MPlayer and mplayer2. It supports a wide variety of video file formats, audio and video codecs, and subtitle types. Special input URL types are available to read input from a variety of sources other than disk files. Depending on platform, a variety of different video and audio output methods are supported.
+
+Usage examples to get you started quickly can be found at the end of this man page.
+INTERACTIVE CONTROL
+
+mpv has a fully configurable, command-driven control layer which allows you to control mpv using keyboard, mouse, or remote control (there is no LIRC support - configure remotes as input devices instead).
+
+See the --input- options for ways to customize it.
+
+The following listings are not necessarily complete. See etc/input.conf in the mpv source files for a list of default bindings. User input.conf files and Lua scripts can define additional key bindings.
+
+See COMMAND INTERFACE and Key names sections for more details on configuring keybindings.
+
+See also --input-test for interactive binding details by key, and the stats built-in script for key bindings list (including print to terminal).
+
+
+
+
+
+
+
+
+
+
+Keyboard Control
+
+LEFT and RIGHT
+    Seek backward/forward 5 seconds. Shift+arrow does a 1 second exact seek (see --hr-seek).
+UP and DOWN
+    Seek forward/backward 1 minute. Shift+arrow does a 5 second exact seek (see --hr-seek).
+Ctrl+LEFT and Ctrl+RIGHT
+    Seek to the previous/next subtitle. Subject to some restrictions and might not always work; see sub-seek command.
+Ctrl+Shift+Left and Ctrl+Shift+Right
+    Adjust subtitle delay so that the next or previous subtitle is displayed now. This is especially useful to sync subtitles to audio.
+[ and ]
+    Decrease/increase current playback speed by 10%.
+{ and }
+    Halve/double current playback speed.
+BACKSPACE
+    Reset playback speed to normal.
+Shift+BACKSPACE
+    Undo the last seek. This works only if the playlist entry was not changed. Hitting it a second time will go back to the original position. See revert-seek command for details.
+Shift+Ctrl+BACKSPACE
+    Mark the current position. This will then be used by Shift+BACKSPACE as revert position (once you seek back, the marker will be reset). You can use this to seek around in the file and then return to the exact position where you left off.
+< and >
+    Go backward/forward in the playlist.
+ENTER
+    Go forward in the playlist.
+p / SPACE
+    Pause (pressing again unpauses).
+.
+    Step forward. Pressing once will pause, every consecutive press will play one frame and then go into pause mode again.
+
+,
+    Step backward. Pressing once will pause, every consecutive press will play one frame in reverse and then go into pause mode again.
+q
+    Stop playing and quit.
+Q
+    Like q, but store the current playback position. Playing the same file later will resume at the old playback position if possible. See RESUMING PLAYBACK.
+/ and *
+    Decrease/increase volume.
+9 and 0
+    Decrease/increase volume.
+m
+    Mute sound.
+_
+    Cycle through the available video tracks.
+#
+    Cycle through the available audio tracks.
+f
+    Toggle fullscreen (see also --fs).
+ESC
+    Exit fullscreen mode.
+T
+    Toggle stay-on-top (see also --ontop).
+w and W
+    Decrease/increase pan-and-scan range. The e key does the same as W currently, but use is discouraged.
+o (also P)
+    Show progression bar, elapsed time and total duration on the OSD.
+O
+    Toggle OSD states between normal and playback time/duration.
+v
+    Toggle subtitle visibility.
+j and J
+    Cycle through the available subtitles.
+z and Z
+    Adjust subtitle delay by +/- 0.1 seconds. The x key does the same as Z currently, but use is discouraged.
+l
+    Set/clear A-B loop points. See ab-loop command for details.
+L
+    Toggle infinite looping.
+Ctrl + and Ctrl -
+    Adjust audio delay (A/V sync) by +/- 0.1 seconds.
+Shift+g and Shift+f
+    Adjust subtitle font size by +/- 10%.
+u
+    Switch between applying no style overrides to SSA/ASS subtitles, and overriding them almost completely with the normal subtitle style. See --sub-ass-override for more info.
+V
+    Toggle subtitle VSFilter aspect compatibility mode. See --sub-ass-vsfilter-aspect-compat for more info.
+r and R
+    Move subtitles up/down. The t key does the same as R currently, but use is discouraged.
+s
+    Take a screenshot.
+S
+    Take a screenshot, without subtitles. (Whether this works depends on VO driver support.)
+Ctrl s
+    Take a screenshot, as the window shows it (with subtitles, OSD, and scaled video).
+PGUP and PGDWN
+    Seek to the beginning of the previous/next chapter. In most cases, "previous" will actually go to the beginning of the current chapter; see --chapter-seek-threshold.
+Shift+PGUP and Shift+PGDWN
+    Seek backward or forward by 10 minutes. (This used to be mapped to PGUP/PGDWN without Shift.)
+d
+    Activate/deactivate deinterlacer.
+A
+    Cycle aspect ratio override.
+Ctrl h
+    Toggle hardware video decoding on/off.
+Alt+LEFT, Alt+RIGHT, Alt+UP, Alt+DOWN
+    Move the video rectangle (panning).
+Alt + and Alt -
+    Combining Alt with the + or - keys changes video zoom.
+Alt+BACKSPACE
+    Reset the pan/zoom settings.
+F8
+    Show the playlist and the current position in it (useful only if a UI window is used, broken on the terminal).
+F9
+    Show the list of audio and subtitle streams (useful only if a UI window is used, broken on the terminal).
+i and I
+    Show/toggle an overlay displaying statistics about the currently playing file such as codec, framerate, number of dropped frames and so on. See STATS for more information.
+del
+    Cycle OSC visibility between never / auto (mouse-move) / always
+`
+    Show the console. (ESC closes it again. See CONSOLE.)
+
+(The following keys are valid only when using a video output that supports the corresponding adjustment.)
+
+1 and 2
+    Adjust contrast.
+3 and 4
+    Adjust brightness.
+5 and 6
+    Adjust gamma.
+7 and 8
+    Adjust saturation.
+Alt+0 (and command+0 on macOS)
+    Resize video window to half its original size.
+Alt+1 (and command+1 on macOS)
+    Resize video window to its original size.
+Alt+2 (and command+2 on macOS)
+    Resize video window to double its original size.
+command + f (macOS only)
+    Toggle fullscreen (see also --fs).
+
+(The following keys are valid if you have a keyboard with multimedia keys.)
+
+PAUSE
+    Pause.
+STOP
+    Stop playing and quit.
+PREVIOUS and NEXT
+    Seek backward/forward 1 minute.
+
+If you miss some older key bindings, look at etc/restore-old-bindings.conf in the mpv git repository.
+Mouse Control
+
+Left double click
+    Toggle fullscreen on/off.
+Right click
+    Toggle pause on/off.
+Forward/Back button
+    Skip to next/previous entry in playlist.
+Wheel up/down
+    Seek forward/backward 10 seconds.
+Wheel left/right
+    Decrease/increase volume.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Keyboard                                    Control
+
+LEFT and RIGHT                                  Seek backward/forward 5 seconds. Shift+arrow does a 1 second exact seek
+                                                (see --hr-seek).
+
+
+UP and DOWN                                     Seek forward/backward 1 minute. Shift+arrow does a 5 second exact seek
+                                                (see --hr-seek).
+
+Ctrl+LEFT and Ctrl+RIGHT                        Seek to the previous/next subtitle.
+                                                Subject to some restrictions and might not always work; see sub-seek command.
+
+Ctrl+Shift+Left and Ctrl+Shift+Right            Adjust subtitle delay so that the next or previous subtitle is displayed now.
+                                                This is especially useful to sync subtitles to audio.
+
+[ and ]                                         Decrease/increase current playback speed by 10%.
+{ and }                                         Halve/double current playback speed.
+BACKSPACE                                       Reset playback speed to normal.
+Shift+BACKSPACE                                 Undo the last seek. This works only if the playlist entry was not changed.
+                                                Hitting it a second time will go back to the original position. See revert-seek command for details.
+
+Shift+Ctrl+BACKSPACE                            Mark the current position.
+                                                This will then be used by Shift+BACKSPACE as revert position (once you seek back, the marker will be reset). You can use this to seek around in the file and then return to the exact position where you left off.
+
+< and >                                         Go backward/forward in the playlist.
+
+ENTER                                           Go forward in the playlist.
+
+p / SPACE                                       Pause (pressing again unpauses).
+
+.                                               Step forward. Pressing once will pause,
+                                                every consecutive press will play one frame and then go into pause mode again.
+
+,                                               Step backward. Pressing once will pause,
+                                                every consecutive press will play one frame in reverse and then go into pause mode again.
+
+q                                               Stop playing and quit.
+
+Q                                               Like q, but store the current playback position.
+                                                Playing the same file later will resume at the old playback position if possible. See RESUMING PLAYBACK.
+
+/ and *                                         Decrease/increase volume.
+
+9 and 0                                         Decrease/increase volume.
+
+m                                               Mute sound.
+
+_                                               Cycle through the available video tracks.
+
+#                                               Cycle through the available audio tracks.
+
+f                                               Toggle fullscreen (see also --fs).
+
+ESC                                             Exit fullscreen mode.
+
+T                                               Toggle stay-on-top (see also --ontop).
+
+w and W                                         Decrease/increase pan-and-scan range.
+                                                The e key does the same as W currently, but use is discouraged.
+
+o (also P)                                      Show progression bar, elapsed time and total duration on the OSD.
+
+O                                               Toggle OSD states between normal and playback time/duration.
+
+v                                               Toggle subtitle visibility.
+
+j and J                                         Cycle through the available subtitles.
+
+z and Z                                         Adjust subtitle delay by +/- 0.1 seconds.
+                                                The x key does the same as Z currently, but use is discouraged.
+
+l                                               Set/clear A-B loop points. See ab-loop command for details.
+
+L                                               Toggle infinite looping.
+
+Чтобы настроить повтор после окончания ролика в MPV плеере, нужно добавить следующую строку в конфигурационный файл mpv.conf: loop-file=inf
+
+Это позволит зациклить воспроизведение файла до тех пор, пока вы не остановите его вручную. Конфигурационный файл mpv.conf находится в домашней директории пользователя. Если его нет, то его можно создать самостоятельно.
+
+
+Ctrl + and Ctrl -                               Adjust audio delay (A/V sync) by +/- 0.1 seconds.
+
+Shift+g and Shift+f                             Adjust subtitle font size by +/- 10%.
+
+u                                               Switch between applying no style overrides to SSA/ASS subtitles,
+                                                and overriding them almost completely with the normal subtitle style. See --sub-ass-override for more info.
+
+V                                               Toggle subtitle VSFilter aspect compatibility mode.
+                                                See --sub-ass-vsfilter-aspect-compat for more info.
+
+r and R                                         Move subtitles up/down. The t key does the same as R currently,
+                                                but use is discouraged.
+
+s                                               Take a screenshot.
+
+S                                               Take a screenshot, without subtitles.
+                                                (Whether this works depends on VO driver support.)
+
+Ctrl s                                          Take a screenshot, as the window shows it (with subtitles, OSD, and scaled video).
+
+PGUP and PGDWN                                  Seek to the beginning of the previous/next chapter.
+                                                In most cases, "previous" will actually go to the beginning of the current chapter; see --chapter-seek-threshold.
+
+Shift+PGUP and Shift+PGDWN                      Seek backward or forward by 10 minutes.
+                                                (This used to be mapped to PGUP/PGDWN without Shift.)
+
+d                                               Activate/deactivate deinterlacer.
+
+A                                               Cycle aspect ratio override.
+
+Ctrl h                                          Toggle hardware video decoding on/off.
+
+Alt+LEFT, Alt+RIGHT, Alt+UP, Alt+DOWN           Move the video rectangle (panning).
+
+Alt + and Alt -                                 Combining Alt with the + or - keys changes video zoom.
+
+Alt+BACKSPACE                                   Reset the pan/zoom settings.
+
+F8                                              Show the playlist and the current position in it
+                                                (useful only if a UI window is used, broken on the terminal).
+
+F9                                              Show the list of audio and subtitle streams
+                                                (useful only if a UI window is used, broken on the terminal).
+
+i and I                                         Show/toggle an overlay displaying
+                                                statistics about the currently playing file such as codec, framerate, number of dropped frames and so on. See STATS for more information.
+
+del                                             Cycle OSC visibility between never / auto (mouse-move) / always
+
+`                                               Show the console. (ESC closes it again. See CONSOLE.)
+
+(The following keys are valid only when using a video output that supports the corresponding adjustment.)
+
+1 and 2                                             Adjust contrast.
+
+3 and 4                                             Adjust brightness.
+
+5 and 6                                             Adjust gamma.
+
+7 and 8                                             Adjust saturation.
+
+Alt+0 (and command+0 on macOS)                      Resize video window to half its original size.
+
+Alt+1 (and command+1 on macOS)                      Resize video window to its original size.
+
+Alt+2 (and command+2 on macOS)                      Resize video window to double its original size.
+
+command + f (macOS only)                            Toggle fullscreen (see also --fs).
+
+
+(The following keys are valid if you have a keyboard with multimedia keys.)
+
+PAUSE                                               Pause.
+
+STOP                                                Stop playing and quit.
+
+PREVIOUS and NEXT                                   Seek backward/forward 1 minute.
+
+
+If you miss some older key bindings, look at etc/restore-old-bindings.conf in the mpv git repository.
+Mouse Control
+
+Left double click                                   Toggle fullscreen on/off.
+
+Right click                                         Toggle pause on/off.
+
+Forward/Back button                                 Skip to next/previous entry in playlist.
+
+Wheel up/down                                       Seek forward/backward 10 seconds.
+
+Wheel left/right                                    Decrease/increase volume.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SYNOPSIS
+mpv [options] [file|URL|PLAYLIST|-]
+mpv [опции] файлы
+ОПИСАНИЕ
+
+mpv - это медиаплеер, основанный на MPlayer и mplayer2. Он поддерживает широкий спектр форматов видеофайлов, аудио- и видеокодеков, а также типов субтитров. Доступны специальные типы входных URL для чтения входных данных из различных источников, кроме дисковых файлов. В зависимости от платформы поддерживается множество различных методов вывода видео и аудио.
+
+Примеры использования для быстрого начала работы можно найти в конце этой man-страницы.
+ИНТЕРАКТИВНОЕ УПРАВЛЕНИЕ
+
+mpv имеет полностью конфигурируемый, управляемый командами уровень управления, который позволяет вам управлять mpv с помощью клавиатуры, мыши или пульта дистанционного управления (поддержка LIRC отсутствует - вместо этого настройте пульты как устройства ввода).
+
+Смотрите опции --input- для способов настройки.
+
+Приведенные ниже списки не обязательно являются полными. Смотрите etc/input.conf в исходных файлах mpv для списка привязок по умолчанию. Пользовательские файлы input.conf и сценарии Lua могут определять дополнительные привязки клавиш.
+
+Более подробно о настройке привязок клавиш смотрите в разделах КОМАНДНЫЙ ИНТЕРФЕЙС и Имена клавиш.
+
+Смотрите также --input-test для получения подробной информации об интерактивных привязках по клавишам и встроенный скрипт stats для получения списка привязок клавиш (включая печать в терминал).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ВЛЕВО и ВПРАВО
+    Перемещение назад/вперед на 5 секунд. Shift+стрелка выполняет точный поиск за 1 секунду (см. --hr-seek).
+ВВЕРХ и ВНИЗ
+    Искать вперед/назад 1 минуту. Shift+стрелка выполняет точный поиск за 5 секунд (см. --hr-seek).
+Ctrl+влево и Ctrl+вправо
+    Переход к предыдущему/следующему субтитру. Имеет некоторые ограничения и может работать не всегда; см. команду sub-seek.
+Ctrl+Shift+Left и Ctrl+Shift+Right
+    Регулировка задержки субтитров таким образом, чтобы следующий или предыдущий субтитр отображался сейчас. Это особенно полезно для синхронизации субтитров с аудио.
+[ и ]
+    Уменьшение/увеличение текущей скорости воспроизведения на 10%.
+{ и }
+    Уменьшение/удвоение текущей скорости воспроизведения в два раза.
+BACKSPACE
+    Сброс скорости воспроизведения до нормальной.
+Shift+BACKSPACE
+    Отмена последнего поиска. Действует только в том случае, если запись в списке воспроизведения не была изменена. При повторном нажатии вы вернетесь в исходное положение. Подробнее см. в разделе "Команда возврата поиска".
+Shift+Ctrl+BACKSPACE
+    Отметить текущую позицию. Затем она будет использоваться Shift+BACKSPACE для возврата в исходное положение (при поиске назад маркер будет сброшен). Это можно использовать для поиска в файле и последующего возврата в точное место, где вы остановились.
+< и >
+    Переход назад/вперед в списке воспроизведения.
+ENTER
+    Переход вперед в списке воспроизведения.
+p / ПРОБЕЛ
+    Пауза (повторное нажатие снимает паузу).
+.
+    Шаг вперед. Однократное нажатие приводит к паузе, каждое последующее нажатие приводит к воспроизведению одного кадра, а затем снова переходит в режим паузы.
+
+,
+    Шаг назад. Однократное нажатие приводит к паузе, каждое последующее нажатие приводит к воспроизведению одного кадра в обратном направлении, а затем снова переходит в режим паузы.
+q
+    Остановить воспроизведение и выйти.
+Q
+    Аналогично q, но сохраняет текущую позицию воспроизведения. При последующем воспроизведении того же файла воспроизведение возобновится со старой позиции, если это возможно. См. раздел ВОССТАНОВЛЕНИЕ ВОСПРОИЗВЕДЕНИЯ.
+/ и *
+    Уменьшение/увеличение громкости.
+9 и 0
+    Уменьшение/увеличение громкости.
+m
+    Отключение звука.
+_
+    Переключение между доступными видеодорожками.
+#
+    Переключение между доступными звуковыми дорожками.
+f
+    Переключить полноэкранный режим (см. также --fs).
+ESC
+    Выход из полноэкранного режима.
+T
+    Переключить режим "оставаться сверху" (см. также --ontop).
+w и W
+    Уменьшение/увеличение диапазона панорамирования и сканирования. Клавиша e делает то же самое, что и W, но использовать ее не рекомендуется.
+o (также P)
+    Отображение на экранном меню индикатора продвижения, истекшего времени и общей продолжительности.
+O
+    Переключение состояний экранного меню между обычным и воспроизведением времени/длительности.
+v
+    Переключение видимости субтитров.
+j и J
+    Циклическое переключение доступных субтитров.
+z и Z
+    Регулировка задержки субтитров на +/- 0,1 секунды. Клавиша x делает то же самое, что и Z, но использовать ее не рекомендуется.
+l
+    Установить/очистить точки цикла A-B. Подробнее см. команду ab-loop.
+L
+    Переключение бесконечного цикла.
+Ctrl + и Ctrl -
+    Регулировка задержки звука (синхронизация A/V) на +/- 0,1 секунды.
+Shift+g и Shift+f
+    Регулировка размера шрифта субтитров на +/- 10%.
+u
+    Переключение между неприменением переопределения стилей к субтитрам SSA/ASS и почти полным переопределением обычного стиля субтитров. Дополнительную информацию см. в параметре --sub-ass-override.
+V
+    Переключить режим совместимости аспектов VSFilter субтитров. Дополнительную информацию см. в разделе --sub-ass-vsfilter-aspect-compat.
+r и R
+    Перемещение субтитров вверх/вниз. Клавиша t делает то же самое, что и R, но использовать ее не рекомендуется.
+s
+    Сделать снимок экрана.
+S
+    Сделать снимок экрана без субтитров. (Будет ли это работать, зависит от поддержки драйверов VO).
+Ctrl s
+    Сделать снимок экрана в том виде, в котором он отображается в окне (с субтитрами, экранным меню и масштабированным видео).
+PGUP и PGDWN
+    Переход к началу предыдущей/следующей главы. В большинстве случаев "предыдущая" переходит к началу текущей главы; см. --chapter-seek-threshold.
+Shift+PGUP и Shift+PGDWN
+    Перемотка назад или вперед на 10 минут. (Раньше эта функция отображалась как PGUP/PGDWN без Shift).
+d
+    Активация/деактивация деинтерлейсера.
+A
+    Переключение соотношения сторон в цикле.
+Ctrl h
+    Включение/выключение аппаратного декодирования видео.
+Alt+LEFT, Alt+RIGHT, Alt+UP, Alt+DOWN
+    Перемещение прямоугольника видео (панорамирование).
+Alt + и Alt -
+    Сочетание Alt с клавишами + или - изменяет масштаб видео.
+Alt+BACKSPACE
+    Сброс настроек панорамирования/масштабирования.
+F8
+    Показать список воспроизведения и текущую позицию в нем (полезно только при использовании окна пользовательского интерфейса, разбитого на терминале).
+F9
+    Показать список потоков аудио и субтитров (полезно, только если используется окно пользовательского интерфейса, на терминале сломано).
+i и I
+    Показать/переключить наложение, отображающее статистику о текущем воспроизводимом файле, такую как кодек, частота кадров, количество потерянных кадров и так далее. Для получения дополнительной информации см. раздел СТАТС.
+del
+    Переключить видимость OSC между никогда / автоматически (перемещение мыши) / всегда.
+`
+    Показать консоль. (ESC закрывает ее снова. См. CONSOLE).
+
+(Следующие клавиши действительны только при использовании видеовыхода, поддерживающего соответствующую настройку).
+
+1 и 2
+    Настройка контрастности.
+3 и 4
+    Настройте яркость.
+5 и 6
+    Отрегулируйте гамму.
+7 и 8
+    Настройте насыщенность.
+Alt+0 (и command+0 в macOS)
+    Изменение размера видеоокна до половины его исходного размера.
+Alt+1 (и command+1 на macOS)
+    Изменение размера видеоокна до исходного размера.
+Alt+2 (и command+2 на macOS)
+    Изменение размера видеоокна в два раза.
+command + f (только для macOS)
+    Переключение в полноэкранный режим (см. также --fs).
+
+(Следующие клавиши действительны, если у вас есть клавиатура с мультимедийными клавишами).
+
+ПАУЗА
+    Пауза.
+СТОП
+    Остановить воспроизведение и выйти из игры.
+PREVIOUS и NEXT
+    Переход на 1 минуту назад/вперед.
+
+Если вам не хватает некоторых старых привязок клавиш, посмотрите etc/restore-old-bindings.conf в git-репозитории mpv.
+Управление мышью
+
+Левый двойной щелчок
+    Включить/выключить полноэкранный режим.
+Правый щелчок
+    Включение/выключение паузы.
+Кнопка "Вперед/Назад
+    Переход к следующей/предыдущей записи в списке воспроизведения.
+Колесо вверх/вниз
+    Перемещение вперед/назад на 10 секунд.
+Колесико влево/вправо
+    Уменьшение/увеличение громкости.
