@@ -53,13 +53,21 @@ If You notice a mistake or have a suggestion, suggestions and corrections are we
 
   - Команда `git init -b main` создаст директорию `.git` и инициализирует пустой Git-репозиторий с "веткой" `main` в качестве основной вместо стандартной "ветки" `master`.
 
+    <br>
+
     **пример:**
+
+    <br>
 
     ```bash
     git init -b main
     ```
 
+    <br>
+
     **вывод команды:**
+
+    <br>
 
     ```bash
     Initialized empty Git repository in /NAME-DIRECTORY/.git/
